@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+    
+</head>
+
+<body>
+<h1>D3 Tutorial</h1>
+<select id="road" >
+    <option>-----</option>
+</select>
+<div id="container"></div>
+
+<script type="text/javascript" src="package/dist/d3.js"></script>
+    <script type="text/javascript" >
+    let container = d3.select("#container")
+   data =  d3.csv("mps_results_2021.csv",
+    ({District,Constituency,Name,PoliticalParty,Votes}) => ({
+        District:District, Constituency:Constituency , Name:Name, PoliticalParty:PoliticalParty, Votes:+Votes
+    })
+    )
+   
+    data.then(dataload)
+
+    function dataload(clients){
+        
+        dat =new Set( d3.map(clients, (d) => {
+           return d.Constituency
+       })
+       )
+       /*mpp = d3.map(dat, (d) => {
+           return dat.find((e) => {
+               return e.Constituency===d
+           })
+       })*/
+       //Add constituency to drop down 
+        d3.select("#road").selectAll("option")
+            .data(d3.map(dat, (d) => {
+                 return d}))
+            .enter()
+            .append("option")
+            .text(function(d){return d;})
+            .attr("value", function(d){return d;})
+
+        write(d3.select("#road").property("value"))
+        
+        function update(selectedGroup) {
+
+            // Create new data with the selection?
+            //var dataFilter = data.filter(function(d){return d.Constituency==selectedGroup})
+            constituency = d3.group(clients, d => d.Constituency);
+            let dat = constituency.get(selectedGroup)
+            var maxi = d3.max(dat, function(d) { return d.Votes; } );
+            var dataFilter = dat.filter(function(d){return d.Votes==maxi})
+            
+            del_it()
+            //container.select("#road").values()
+            //showdata(constituency.get(selectedGroup).values())
+            write(d3.select("#road").property("value"))
+            showdata(dataFilter)
+            // Give these new data to update line
+            /*line
+                .datum(dataFilter)
+                .transition()
+                .duration(1000)
+                .attr("d", d3.line()
+                .x(function(d) { return x(d.year) })
+                .y(function(d) { return y(+d.n) })
+                )
+                .attr("stroke", function(d){ return myColor(selectedGroup) })*/
+            }
+            d3.select("#road").on("change", function(d) {
+                // recover the option that has been chosen
+                var selectedOption = d3.select(this).property("value")
+                // run the updateChart function with this selected option
+                update(selectedOption)
+            })
+
+        constituency = d3.group(clients, d => d.Constituency);
+        
+        sum = d3.extent(constituency.get("NAKAWA DIVISION EAST").values(), (d) => d.Votes)
+        write(sum)
+        //showdata(constituency.get("NAKAWA DIVISION EAST").values())
+        
+
+
+
+    }
+
+
+    function selectvalue(selectObject){
+            var value =selectObject.value;
+            write(value)
+        }
+
+    function pickopt(clients){
+        ddvalue = d3.select("#road")
+        .on("change")
+        .property("value")
+        write(ddvalue)
+    }
+    //function 
+    //write("Line after")
+
+    function showdata(clients){
+        for (let client of clients){
+            write(client.Constituency+ " -- " + client.PoliticalParty+" -- " + client.Name+ " -- " + client.Votes)
+        }
+    }
+
+
+    function write(text){
+        container.append("div").text(text)
+    }
+    
+    function del_it(){
+        container.selectAll("div").remove()
+    }
+
+    
+
+    </script>
+</body>
+</html>

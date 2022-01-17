@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- daterange picker -->
+
+<!-- Tempusdominus Bbootstrap 4 -->
+
+<link rel="stylesheet" href="dist/css/adminlte.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+
+
+<!-- Google Font: Source Sans Pro -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body>
+
+
+<!--<select id="road" >
+    <option>-----</option>
+</select>-->
+
+<!-- Main content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4"></div><h1>Uganda Election Analysis</h1></div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4"></div>
+    
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <h3></h3>
+                    
+                        <select id="pres_poll" ></select>
+                    <div class="container">
+                    <div id="polldata"></div>    
+                    </div>
+                </div>
+    
+                
+            </div>
+
+
+      <div class="row">
+        
+        <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <h3>Correlation between Voter turn out and Winning percentage</h3>
+                <div class="container">
+                    <select id="districtcorr" >
+                    
+                </select></div>
+                <div class="container " id="pres_cor">
+                    <h3></h3>
+                    <!--<svg id="pres_cor" >
+                        <g id="bodysca" ></g>
+                        <g id="xAxissca"></g>
+                        <g id="yAxissca"></g>
+                    </svg>--></div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <h3></h3>
+                
+                    <select id="districtmp" ></select>
+                <div class="container">
+                    <svg id="container" height="500" width="500">
+                        <g id="body" style="transform:translate(100px,100px)"></g>
+                        <g id="xAxis"></g>
+                        <g id="yAxis"></g>
+                    </svg>
+                </div>
+            </div>
+
+            
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <h3>Trend showing Percentage of the incumbent and the runner up from 2001 to 2021</h3>
+                <div class="container"><div id="my_dataviz"></div></div>
+                
+            </div>
+        </div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="package/dist/d3.js"></script>
+
+<script type="text/javascript" src="ind.js" ></script>
+<script type="text/javascript" src="ind_pres.js" ></script>
+<script type="text/javascript" src="trend_pres.js" ></script>
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+</body>
+</html>
