@@ -71,7 +71,7 @@ var dot = svg
    .attr("cx", function(d) { return x(+d.year) })
    .attr("cy", function(d) { return y(+d.museveni) })
    .attr("r", 7)
-   .style("fill", "yellow")
+   .style("fill", "#cccc00")
 
 
    var line1 = svg
@@ -99,7 +99,7 @@ var dot = svg
 
 
 
-     svg.append("circle").attr("cx",width-70).attr("cy",20).attr("r", 6).style("fill", "#999900")
+     svg.append("circle").attr("cx",width-70).attr("cy",20).attr("r", 6).style("fill", "#cccc00")
     svg.append("circle").attr("cx",width-70).attr("cy",40).attr("r", 6).style("fill", "blue")
     svg.append("text").attr("x", width-50).attr("y", 20).text("Museveni").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", width-50).attr("y", 40).text("Runner up").style("font-size", "15px").attr("alignment-baseline","middle")   
@@ -115,7 +115,7 @@ var dot = svg
     svg.append("text")
     .attr("text-anchor", "end")
     .attr("transform", "rotate(-90)")
-    .attr("y", -margin.left + 50)
+    .attr("y", -margin.left + 500)
     .attr("x", -margin.top - height/2 + 110)
     .text("Percentage of votes %")
 
