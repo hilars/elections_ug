@@ -35,7 +35,7 @@ d3.csv("pres_trend.csv").then( function(data) {
 
   svg.append("g")
   .attr("transform", `translate(${width-400},0)`)
-    .call(d3.axisLeft(y).tickSize(200));
+    .call(d3.axisLeft(y).tickSize(-200));
 
   // color palette
   const color = d3.scaleOrdinal()
