@@ -35,7 +35,14 @@ d3.csv("pres_trend.csv").then( function(data) {
 
   svg.append("g")
   .attr("transform", `translate(${width-400},0)`)
-    .call(d3.axisLeft(y).tickSize(-width-400));
+    .call(d3.axisLeft(y).tickSize(-width-400)).call(g => g.select(".domain")
+        .remove())
+    .call(g => g.selectAll(".tick:not(:first-of-type) line")
+        .attr("stroke-opacity", 0.5)
+        .attr("stroke-dasharray", "2,2"))
+    .call(g => g.selectAll(".tick text")
+        .attr("x", 4)
+        .attr("dy", -4));
 
   // color palette
   const color = d3.scaleOrdinal()
