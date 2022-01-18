@@ -1,6 +1,6 @@
 // set the dimensions and margins of the graph
 //const margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 460 - margin.left - margin.right,
+    width = 660 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -22,8 +22,8 @@ d3.csv("pres_trend.csv").then( function(data) {
                             
   const x = d3.scaleOrdinal()//d3.scaleLinear()2001,2021//d3.scaleBand()
     
-    .domain([2001,2006,2011,2016,2021])
-    .range([  width-400, width-300, width-200, width-100, width ]);
+    .domain([1995,2001,2006,2011,2016,2021])
+    .range([  width-500,width-400, width-300, width-200, width-100, width ]);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x));
