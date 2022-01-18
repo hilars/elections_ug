@@ -99,7 +99,7 @@ var dot = svg
 
 
 
-     svg.append("circle").attr("cx",width-70).attr("cy",20).attr("r", 6).style("fill", "yellow")
+     svg.append("circle").attr("cx",width-70).attr("cy",20).attr("r", 6).style("fill", "#999900")
     svg.append("circle").attr("cx",width-70).attr("cy",40).attr("r", 6).style("fill", "blue")
     svg.append("text").attr("x", width-50).attr("y", 20).text("Museveni").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", width-50).attr("y", 40).text("Runner up").style("font-size", "15px").attr("alignment-baseline","middle")   
