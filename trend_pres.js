@@ -58,7 +58,7 @@ d3.csv("pres_trend.csv").then( function(data) {
      .x(function(d) { return x(+d.year) })
      .y(function(d) { return y(+d.museveni) })
    )
-   .attr("stroke", "yellow")
+   .attr("stroke", "#cccc00")
    .style("stroke-width", 4)
    .style("fill", "none")
 
@@ -100,9 +100,9 @@ var dot = svg
 
 
      svg.append("circle").attr("cx",width-70).attr("cy",20).attr("r", 6).style("fill", "#cccc00")
-    svg.append("circle").attr("cx",width-70).attr("cy",40).attr("r", 6).style("fill", "blue")
+    svg.append("circle").attr("cx",width-70).attr("cy",50).attr("r", 6).style("fill", "blue")
     svg.append("text").attr("x", width-50).attr("y", 20).text("Museveni").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", width-50).attr("y", 40).text("Runner up").style("font-size", "15px").attr("alignment-baseline","middle")   
+    svg.append("text").attr("x", width-50).attr("y", 50).text("Runner up").style("font-size", "15px").attr("alignment-baseline","middle")   
     
     // Add X axis label:
     svg.append("text")
