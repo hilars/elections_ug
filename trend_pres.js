@@ -34,7 +34,7 @@ d3.csv("pres_trend.csv").then( function(data) {
     .range([ height, 0 ]);
 
   svg.append("g")
-  .attr("transform", `translate(${width-400},0)`)
+  .attr("transform", `translate(${width-500},0)`)
     .call(d3.axisLeft(y).tickSize(-width-300)).call(g => g.select(".domain")
         .remove())
     .call(g => g.selectAll(".tick:not(:first-of-type) line")
