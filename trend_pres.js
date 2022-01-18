@@ -115,7 +115,7 @@ var dot = svg
     svg.append("text")
     .attr("text-anchor", "end")
     .attr("transform", "rotate(-90)")
-    .attr("y", -margin.left + 15)
+    .attr("y", -margin.left + 20)
     .attr("x", -margin.top - height/2 + 110)
     .text("Percentage of votes %")
 
