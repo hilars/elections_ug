@@ -39,6 +39,8 @@ var margin = {top: 30, right: 30, bottom: 70, left: 60},
             district1 = d3.group(data, d => d.District);
             var selecti = d3.select("#districtmp").property("value")
             
+            console.log("am: ${d3.select("#districtcorr").property("value")}")
+            
                 
         bars(district1.get(d3.select("#districtcorr").property("value")));
 
