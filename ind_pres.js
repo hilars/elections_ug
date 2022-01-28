@@ -1,4 +1,3 @@
-
 var margin = {top: 20, right: 20, bottom: 50, left: 70},
 width = 960 - margin.left - margin.right,
 height = 500 - margin.top - margin.bottom;
@@ -20,10 +19,39 @@ let container1= d3.select("#pres_cor").append("svg")
                     .attr("transform",
                         "translate(" + margin.left + "," + margin.top + ")");*/
                     
-                    
+function add_polling(pid, pname) {
+       const tmp = `<option value="${pname}"></option>`;
+        stations.set(pname,pid);
+        $("#pollinst").append(tmp);
+                            
+                        }
+
+
 d3.csv("pres_pollingno.csv", ({LocationName,LocationID,Winner,district,winner_votes,Registered_Voters,Invalid_Ballots,winning_percent,voter_turnup,Valid_Ballots,Total_Ballots}) =>
 ({LocationName:LocationName,LocationID:LocationID,district:district,Winner:Winner,winner_votes:+winner_votes,winning_percent:+winning_percent,voter_turnup:+voter_turnup,Registered_Voters:+Registered_Voters,Invalid_Ballots:+Invalid_Ballots,Valid_Ballots:+Valid_Ballots,Total_Ballots:+Total_Ballots})
 ).then( (data) =>  {
+
+    /*data.map(el => add_polling(el.LocationID, el.LocationName));
+            const info = data.find(el => el.LocationID === "2-106-1-049-02");
+            drawBar(info);
+            $("#pollinst").on("change", (e) => {
+                const val = data.find(el => el.LocationID == stations.get(e.target.value));
+                drawBar(val);
+            })*/
+
+    dat1 =new Set( d3.map(data, (d) => {
+        return d.LocationName
+    })
+    )
+    
+    //Add constituency to drop down 
+     d3.select("#pollinst").selectAll("option")
+         .data(d3.map(dat1, (d) => {
+              return d}))
+         .enter()
+         .append("option")
+         .text(function(d){return d;})
+         .attr("value", function(d){return d;})
 
     let data1 =new Set( d3.map(data, (d) => {
         return d.district
@@ -44,7 +72,14 @@ d3.csv("pres_pollingno.csv", ({LocationName,LocationID,Winner,district,winner_vo
     console.log(d3.select("#districtcorr").property("value"))
         scatter(data)
         // A function that update the chart
-    
+    $("#pollinst").on("change", (e) => {
+        station = d3.group(clients, d => d.LocationName);
+        var selecti = d3.select("#pollinst").property("value")
+              //write(selecti)
+              district1.get(selecti)
+            const val = data.find(el => el.LocationName == station.get(selecti));
+            drawBaz(val);
+        })
 
     
         console.log("hello")
@@ -160,4 +195,54 @@ d3.csv("pres_pollingno.csv", ({LocationName,LocationID,Winner,district,winner_vo
    }
 
 
-   
+   function drawBaz(clients){
+    
+        
+        let datafilt = clients
+
+        let maxi = d3.max(datafilt, function(d) { return d.Votes; } );
+        let sum = d3.sum(datafilt, function(d) { return d.Votes; } );
+        let widthScale = d3.scaleLinear()
+                        .range([0,300])
+                        .domain([0, ((maxi+(maxi/4))/sum)*100])
+        
+        let positionScale = d3.scaleBand()
+                            .range([0, 200])
+                            .domain(datafilt.map(d => d.PoliticalParty))
+                            .padding(0.3)
+        
+        let colorScale = d3.scaleOrdinal()
+                            .domain(datafilt.map(d => d.PoliticalParty))
+                            .range(["gray", "teal", "yellow", "blue", "purple"])
+        let color = ["#010211", "#002200", "#ff4444", "0000ff", "#00ffff"]
+
+        let join = container.selectAll("rect").data(datafilt)
+        /*join.enter()
+                .append("rect")
+                .text(d => d.PoliticalParty+": "+widthScale(d.Votes))
+                .style("background-color","blue")
+                .style("margin","5px")
+                .style("color","white")
+                .style("width", d => 10)//widthScale(d.Votes)*1)*/
+        cov = join.enter()
+            .append("rect")
+            .style("stroke","white")
+            .attr("fill", function (d) { return colorScale(d.PoliticalParty)})
+            .attr("width", d => widthScale((d.Votes/sum)*100))
+            .attr("height", positionScale.bandwidth())
+            .attr("y", d => positionScale(d.PoliticalParty))
+
+
+        let xAxis = d3.axisBottom(widthScale)
+                    .ticks(5)
+                    .tickFormat(d => d + "%" )
+        xs = d3.select("#xAxis")
+            .attr("transform", "translate(100,  300)")
+            .call(xAxis)
+        let yAxis = d3.axisLeft(positionScale)
+        ys = d3.select("#yAxis")
+            .attr("transform", "translate(100, 100)")
+            .call(yAxis)
+
+
+   }
