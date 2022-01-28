@@ -72,14 +72,14 @@ d3.csv("pres_pollingno.csv", ({LocationName,LocationID,Winner,district,winner_vo
     console.log(d3.select("#districtcorr").property("value"))
         scatter(data)
         // A function that update the chart
-    $("#pollinst").on("change", (e) => {
+    /*$("#pollinst").on("change", (e) => {
         station = d3.group(clients, d => d.LocationName);
         var selecti = d3.select("#pollinst").property("value")
               //write(selecti)
               district1.get(selecti)
             const val = data.find(el => el.LocationName == station.get(selecti));
             drawBaz(val);
-        })
+        })*/
 
     
         console.log("hello")
