@@ -46,7 +46,7 @@ var margin = {top: 30, right: 30, bottom: 70, left: 60},
             del_it();
             //const val = data.find(el => el. == stations.get(e.target.value));
             district1 = d3.group(data, d => d.District);
-            //var selecti = d3.select("#districtmp").property("value")
+            var selecti = d3.select("#districtmp").property("value")
             
             bars(district1.get(d3.select("#districtcorr").property("value")));
         })
