@@ -59,14 +59,14 @@ d3.csv("pres_pollingno.csv", ({LocationName,LocationID,Winner,district,winner_vo
     )
 
     //Add constituency to drop down 
-    d3.select("#districtcorr").selectAll("option")
+    /*d3.select("#districtcorr").selectAll("option")
     .data(d3.map(data1, (d) => {
         return d}))
     .enter()
     .append("option")
     .text(function(d){return d;})
     .attr("value", function(d){return d;})
-     console.log(data1)
+     console.log(data1)*/
 
     
     console.log(d3.select("#districtcorr").property("value"))
