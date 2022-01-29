@@ -28,13 +28,13 @@ var margin = {top: 30, right: 30, bottom: 70, left: 60},
        )
        
        //Add constituency to drop down 
-       /* d3.select("#districtmp").selectAll("option")
+        d3.select("#districtcorr").selectAll("option")
             .data(d3.map(dat, (d) => {
                  return d}))
             .enter()
             .append("option")
             .text(function(d){return d;})
-            .attr("value", function(d){return d;})*/
+            .attr("value", function(d){return d;})
         
             district1 = d3.group(data, d => d.District);
             var selecti = d3.select("#districtmp").property("value")
