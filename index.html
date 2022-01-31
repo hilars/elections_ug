@@ -115,29 +115,26 @@
 <script type="text/javascript" src="poll.js" ></script>
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-    <script
-			  src="https://code.jquery.com/jquery-2.2.4.min.js"
-			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-			  crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dropdown/2.0.3/jquery.dropdown.min.js" integrity="sha512-a1HFA1NIciHH1JtCbf7DS4zAK6FxUsmnXSIEfPm75d3vgPVfaVeVQbKcX7iqqvyp4kTUtqWB+Z7/4S8QhIqXbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script  src="https://code.jquery.com/jquery-2.2.4.min.js"  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="  crossorigin="anonymous"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dropdown/2.0.3/jquery.dropdown.min.js" integrity="sha512-a1HFA1NIciHH1JtCbf7DS4zAK6FxUsmnXSIEfPm75d3vgPVfaVeVQbKcX7iqqvyp4kTUtqWB+Z7/4S8QhIqXbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
 
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <script>
     
-    const stations = new Map();
+    //const stations = new Map();
         /**
         * @param {string} pid
         * @param {string} pname
         **/
-        function add_polling(pid, pname) {
+        /*function add_polling(pid, pname) {
             const tmp = `<option value="${pname}"></option>`;
             stations.set(pname,pid);
             $("#pollinst").append(tmp);
             
-        }
+        }*/
         
 
         /*d3.csv("pres_pollingno.csv").then(data => {
