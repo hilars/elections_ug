@@ -39,19 +39,7 @@ d3.csv("pres_pollingno.csv", ({LocationName,LocationID,Winner,district,winner_vo
                 drawBar(val);
             })*/
 
-    dat1 =new Set( d3.map(data, (d) => {
-        return d.LocationName
-    })
-    )
     
-    //Add constituency to drop down 
-     d3.select("#pollinst").selectAll("option")
-         .data(d3.map(dat1, (d) => {
-              return d}))
-         .enter()
-         .append("option")
-         .text(function(d){return d;})
-         .attr("value", function(d){return d;})
 
     let data1 =new Set( d3.map(data, (d) => {
         return d.district
