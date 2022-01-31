@@ -3,19 +3,19 @@
 width = 960 - margin.left - margin.right,
 height = 500 - margin.top - margin.bottom;
 */
-var width = 850,
-    height = 650,
-    margin = 40;
+var width1 = 850,
+    height1 = 650,
+    margin1 = 40;
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
-const radius = Math.min(width, height) / 2 - margin
+const radius = Math.min(width1, height1) / 2 - margin1
 
 // append the svg object to the div called 'my_dataviz'
 const svg1 = d3.select("#polling-data")
   .append("svg")
-    .attr("width", width)
-    .attr("height", height)
+    .attr("width", width1)
+    .attr("height", height1)
   .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    .attr("transform", "translate(" + width1 / 2 + "," + height1 / 2 + ")");
 
     /*const COLORS = {
         colors:{"YMuseveni":"#ffdf00",
@@ -39,9 +39,9 @@ const svg1 = d3.select("#polling-data")
     
     d3.csv("pres_pollingno.csv").then( (data) =>  {
 
-        //var selecta = d3.select("#pollinst").property("value")
+        var selecta = d3.select("#pollinst").property("value")
         clients = d3.group(data, d => d.LocationName);
-        dut = clients.get("Kakurau")
+        dut = clients.get(selecta)
         piech(dut)
         
         
@@ -68,7 +68,7 @@ function piech(data){
     
     var elems = {};
         
-    console.log("Radius: "+width)
+    console.log("Radius: "+width1)
         
         dut .forEach(d => {
             //console.log(Object.keys(d));
