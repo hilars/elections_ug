@@ -5,7 +5,7 @@ height = 500 - margin.top - margin.bottom;
 */
 var width1 = 850,
     height1 = 650,
-    margin1 = 40;
+    margin1 = 20;
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
 const radius = Math.min(width1, height1) / 2 - margin1
 
