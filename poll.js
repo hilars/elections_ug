@@ -49,6 +49,7 @@ const svg1 = d3.select("#polling-data")
             //const val = data.find(el => el. == stations.get(e.target.value));
             clients = d3.group(data, d => d.District);
             var selecta1 = d3.select("#districtmp").property("value")
+            console.log(d3.select("#pollinst").property("value"))
             
             piech(district1.get(d3.select("#pollinst").property("value")));
         })
