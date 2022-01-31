@@ -60,11 +60,11 @@ const svg1 = d3.select("#polling-data")
         $("#pollinst").on("change", (e) => {
             del_it1();
             //const val = data.find(el => el. == stations.get(e.target.value));
-            clients = d3.group(data, d => d.LocationName);
+            clientsi = d3.group(data, d => d.LocationName);
             var selecta1 = d3.select("#districtmp").property("value")
             console.log(d3.select("#pollinst").property("value"))
             
-            piech(clients.get(d3.select("#pollinst").property("value")));
+            piech(clientsi.get(d3.select("#pollinst").property("value")));
         })
         
         
