@@ -136,10 +136,10 @@ function piech(dat1){
             .append('g')
             .attr('class', 'legend')
             .attr('transform', (d, i) => {
-                var height = legendItemSize + legendSpacing
-                var offset = height * color.domain().length / 3
+                var height11 = legendItemSize + legendSpacing
+                var offset = height11 * color.domain().length / 3
                 var x = legendItemSize * -5;
-                var y = (i * height) - offset
+                var y = (i * height11) - offset
                 return `translate(${x}, ${y})`
             })
 
