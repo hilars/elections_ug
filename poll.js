@@ -44,6 +44,15 @@ const svg1 = d3.select("#polling-data")
         dut = clients.get(selecta)
         piech(dut)
         
+        $("#pollinst").on("change", (e) => {
+            del_it1();
+            //const val = data.find(el => el. == stations.get(e.target.value));
+            clients = d3.group(data, d => d.District);
+            var selecta1 = d3.select("#districtmp").property("value")
+            
+            piech(district1.get(d3.select("#pollinst").property("value")));
+        })
+        
         
 
     })
@@ -226,3 +235,7 @@ svg
   .style("text-anchor", "middle")
   .style("font-size", 17)
   */
+
+ function del_it1(){
+        svg1.selectAll("allSlices").remove()
+    }
