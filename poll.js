@@ -74,13 +74,13 @@ const svg1 = d3.select("#polling-data")
     // Create dummy data
 //var data = {a: 9, b: 20, c:30, d:8, e:12}
 
-function piech(data1){
+function piech(dati1){
     
     var elems = {};
         
     console.log("Radius: "+width1)
         
-        data1.forEach(d => {
+        dati1.forEach(d => {
             //console.log(Object.keys(d));
             x = Object.keys(d)
             for (i=4;i<=14;i++){
@@ -90,7 +90,7 @@ function piech(data1){
             
                     
         });
-        console.log(Object.entries(data1))//elems)
+        console.log(Object.entries(dati1))//elems)
 
 
                 // set the color scale
