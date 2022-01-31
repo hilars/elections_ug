@@ -129,7 +129,7 @@ function piech(dat1){
             var legendSpacing = 4
 
         console.log("cani:"+ color.domain())
-            var legend = svg
+            var legend = svg1
             .selectAll('.legend')
             .data(data_ready)
             .enter()
@@ -153,8 +153,8 @@ function piech(dat1){
             legend
             .append('text')
             .data(data_ready)
-            .attr('x', height1 + legendSpacing)
-            .attr('y', width1 - legendSpacing)
+            .attr('x', legendItemSize + legendSpacing)
+            .attr('y', legendItemSize - legendSpacing)
             .text((d) => d.data[0])
 
 
