@@ -3,14 +3,14 @@
 width = 960 - margin.left - margin.right,
 height = 500 - margin.top - margin.bottom;
 */
-const width = 850,
+var width = 850,
     height = 650,
     margin = 40;
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
 const radius = Math.min(width, height) / 2 - margin
 
 // append the svg object to the div called 'my_dataviz'
-const svg = d3.select("#my_dataviz")
+const svg1 = d3.select("#polling-data")
   .append("svg")
     .attr("width", width)
     .attr("height", height)
@@ -105,7 +105,7 @@ function piech(data){
             .outerRadius(radius * 0.9)
 
             // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-            svg
+            svg1
             .selectAll('allSlices')
             .data(data_ready)
             .join('path')
