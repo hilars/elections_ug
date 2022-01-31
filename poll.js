@@ -38,7 +38,20 @@ const svg1 = d3.select("#polling-data")
 
     
     d3.csv("pres_pollingno.csv").then( (data) =>  {
-
+    dat1 =new Set( d3.map(data, (d) => {
+        return d.LocationName
+    })
+    )
+    
+    //Add constituency to drop down 
+     d3.select("#pollinst").selectAll("option")
+         .data(d3.map(dat1, (d) => {
+              return d}))
+         .enter()
+         .append("option")
+         .text(function(d){return d;})
+         .attr("value", function(d){return d;})
+        
         var selecta = d3.select("#pollinst").property("value")
         clients = d3.group(data, d => d.LocationName);
         dut = clients.get(selecta)
