@@ -70,7 +70,7 @@ function piech(data){
         
     console.log("Radius: "+width1)
         
-        dut .forEach(d => {
+        data.forEach(d => {
             //console.log(Object.keys(d));
             x = Object.keys(d)
             for (i=4;i<=14;i++){
