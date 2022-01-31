@@ -153,8 +153,8 @@ function piech(dat1){
             legend
             .append('text')
             .data(data_ready)
-            .attr('x', legendItemSize + legendSpacing)
-            .attr('y', legendItemSize - legendSpacing)
+            .attr('x', height1 + legendSpacing)
+            .attr('y', width1 - legendSpacing)
             .text((d) => d.data[0])
 
 
