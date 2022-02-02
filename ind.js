@@ -113,7 +113,7 @@ var margin = {top: 30, right: 30, bottom: 70, left: 60},
     .attr("text-anchor", "end")
     .attr("x", 50)
     .attr("y", 300)
-    .text("Year");
+    .text("Percentage of votes %");
 
 
             
