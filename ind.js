@@ -107,6 +107,13 @@ var margin = {top: 30, right: 30, bottom: 70, left: 60},
         ys = d3.select("#yAxis")
             .attr("transform", "translate(100, 100)")
             .call(yAxis)
+        
+        // Add X axis label:
+    join.append("text")
+    .attr("text-anchor", "end")
+    .attr("x", 50)
+    .attr("y", 300)
+    .text("Year");
 
 
             
